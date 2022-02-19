@@ -86,13 +86,17 @@ module.exports = {
 
         const visitors = lodashContext.getImportVisitors()
         visitors.BinaryExpression = function (node) {
-            console.log('🚀 ~ file: prefer-is-empty.js ~ line 90 ~ create ~ node', node)
             if (node.operator === '===') {
                 const leftExpressionMember = node.left.property.name 
                 const rightExpressionMember = node.right.value
                 if (leftExpressionMember === 'length' && rightExpressionMember === 0) {
-                    console.log('🚀 ~ file: prefer-is-empty.js ~ line 94 ~ create ~ rightExpressionMember', rightExpressionMember)
-                    console.log('🚀 ~ file: prefer-is-empty.js ~ line 94 ~ create ~ leftExpressionMember', leftExpressionMember)
+                    context.report({node, message: 'Prefer isEmpty over manually checking for length value.'})
+                }
+            } 
+            if (node.operator === '>') {
+                const leftExpressionMember = node.left.property.name 
+                const rightExpressionMember = node.right.value
+                if (leftExpressionMember === 'length' && rightExpressionMember === 0) {
                     context.report({node, message: 'Prefer isEmpty over manually checking for length value.'})
                 }
             } 
