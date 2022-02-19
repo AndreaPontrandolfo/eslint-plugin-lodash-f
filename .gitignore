@@ -26,6 +26,7 @@ coverage
 # Yarn Berry
 .pnp.*
 .yarn/*
+.vscode/
 !.yarn/patches
 !.yarn/plugins
 !.yarn/releases

@@ -1,5 +1,5 @@
 /**
- * @fileoverview Rule to prefer _.noop over an empty function
+ * @fileoverview Rule to prefer isNil over manual checking for undefined or null.
  */
 'use strict'
 
