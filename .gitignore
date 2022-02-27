@@ -22,6 +22,7 @@ sftp-config.json
 coverage
 .nyc_output
 .eslintcache
+/workspace.code-workspace
 
 # Yarn Berry
 .pnp.*

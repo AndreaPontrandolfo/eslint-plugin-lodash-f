@@ -1,4 +1,7 @@
 {
+    "env": {
+        "node": true
+    },
     "extends": [
         "wix-editor/node",
         "plugin:eslint-plugin/recommended"
@@ -10,5 +13,9 @@
         "no-extra-parens": 0,
         "quote-props": [2, "as-needed"],
         "strict": [2, "global"]
+    },
+    "parserOptions":
+    {
+      "ecmaVersion": 2020
     }
 }

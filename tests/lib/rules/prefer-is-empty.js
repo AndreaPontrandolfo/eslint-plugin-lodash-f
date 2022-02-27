@@ -19,6 +19,7 @@ ruleTester.run('prefer-is-empty', rule, {
         'const myLengthEqualZero = !isEmpty(myVar);',
         'const myLengthEqualZero = isEmpty(myVar);',
         'const myLengthEqualZero = myVar.length == 0;',
+        'const myLengthEqualZero = myVar?.length == 0;',
         'const myLengthEqualZero = myVar.length;',
         'const myLengthEqualZero = myVar;'
     ].map(withDefaultPragma),
@@ -28,6 +29,8 @@ ruleTester.run('prefer-is-empty', rule, {
         {code: 'const myLengthEqualZero = myVar.length > 0 ? "first" : "second";', output: 'const myLengthEqualZero = !isEmpty(myVar) ? "first" : "second";'},
         {code: 'const myLengthEqualZero = myVar.myProp.mySecondProp.length === 0;', output: 'const myLengthEqualZero = isEmpty(myVar.myProp.mySecondProp);'},
         {code: 'const myLengthEqualZero = myVar.myProp.mySecondProp.length > 0;', output: 'const myLengthEqualZero = !isEmpty(myVar.myProp.mySecondProp);'},
+        {code: 'const myLengthEqualZero = myVar?.myProp.mySecondProp.length > 0;', output: 'const myLengthEqualZero = !isEmpty(myVar?.myProp.mySecondProp);'},
+        {code: 'const myLengthEqualZero = myVar[myProp].mySecondProp.length > 0;', output: 'const myLengthEqualZero = !isEmpty(myVar[myProp].mySecondProp);'},
         {code: `
         const xprop = "x"
         const yprop = "y"

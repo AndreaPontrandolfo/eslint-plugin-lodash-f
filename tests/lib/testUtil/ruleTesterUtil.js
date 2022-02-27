@@ -10,7 +10,7 @@ module.exports = {
     getRuleTester(options) {
         return new RuleTester(Object.assign({
             parserOptions: {
-                ecmaVersion: 6
+                ecmaVersion: 2020
             }
         }, options || {}))
     }
