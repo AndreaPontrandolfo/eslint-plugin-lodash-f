@@ -1,11 +1,11 @@
 {
   "name": "eslint-plugin-lodash-f",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "author": "Andrea Pontrandolfo <andrea.pontra@gmail.com>",
   "contributors" : [
     {
-      "name" : "Omer Ganim",
-      "email" : "ganimomer@gmail.com"
+      "name": "Omer Ganim",
+      "email": "ganimomer@gmail.com"
     }
    ],
   "description": "Fork of eslint-plugin-lodash. has more rules than the original version.",
@@ -60,6 +60,5 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.21"
-  },
-  "packageManager": "yarn@3.1.1"
+  }
 }
