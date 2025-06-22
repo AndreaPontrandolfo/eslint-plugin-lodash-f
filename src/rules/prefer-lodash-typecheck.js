@@ -19,6 +19,7 @@ module.exports = {
     },
 
     create(context) {
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
         const some = require('lodash/some')
         const {getIsTypeMethod} = require('../util/lodashUtil')
 
@@ -36,7 +37,7 @@ module.exports = {
         }
 
         function isDeclaredVariable(node) {
-            const definedVariables = context.getScope().variables
+            const definedVariables = (sourceCode.getScope ? sourceCode.getScope(context) : context.getScope()).variables
             return some(definedVariables, {name: node.name})
         }
 

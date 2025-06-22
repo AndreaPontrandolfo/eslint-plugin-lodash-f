@@ -28,6 +28,7 @@ module.exports = {
     },
 
     create(context) {
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
         const {getLodashMethodVisitors} = require('../util/lodashUtil')
         const {isAliasOfMethod} = require('../util/methodDataUtil')
         const objectPathMethods = {
@@ -103,7 +104,7 @@ module.exports = {
             return `\`${node.elements
                 .map(el => {
                     if (el.type === 'MemberExpression') {
-                        return `.\$\{${context.getSourceCode().getText(el)}\}`
+                        return `.\$\{${sourceCode.getText(el)}\}`
                     }
                     if (canBeDotNotation(el)) {
                         return `.${el.value}`
@@ -111,7 +112,7 @@ module.exports = {
                     if (isLiteral(el)) {
                         return `[${el.value}]`
                     }
-                    return `\$\{${context.getSourceCode().getText(el)}\}`
+                    return `\$\{${sourceCode.getText(el)}\}`
                 })
                 .join('')
                 .replace(/^\./, '')}\``
