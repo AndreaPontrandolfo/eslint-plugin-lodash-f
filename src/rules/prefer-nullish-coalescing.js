@@ -20,6 +20,7 @@ module.exports = {
     },
 
     create(context) {
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
         const {getLodashContext} = require('../util/lodashUtil')
         const lodashContext = getLodashContext(context)
 
@@ -28,7 +29,7 @@ module.exports = {
                 if (node.type === 'Identifier') {
                     return node.name
                 }
-                return context.getSourceCode().getText(node)
+                return sourceCode.getText(node)
             }
         }
 

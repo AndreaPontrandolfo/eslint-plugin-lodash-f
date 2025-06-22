@@ -32,13 +32,13 @@
   "homepage": "https://github.com/AndreaPontrandolfo/eslint-plugin-lodash",
   "bugs": "https://github.com/AndreaPontrandolfo/eslint-plugin-lodash/issues",
   "peerDependencies": {
-    "eslint": ">=2"
+    "eslint": ">=9.29.0"
   },
   "devDependencies": {
     "auto-changelog": "^2.4.0",
     "coveralls": "^3.1.1",
     "cross-env": "^7.0.3",
-    "eslint": "^8.16.0",
+    "eslint": "^9.29.0",
     "eslint-config-wix-editor": "^8.4.2",
     "eslint-import-resolver-node": "^0.3.6",
     "eslint-plugin-eslint-plugin": "^4.2.0",

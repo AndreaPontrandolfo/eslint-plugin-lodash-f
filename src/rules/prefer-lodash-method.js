@@ -35,6 +35,7 @@ module.exports = {
     },
 
     create(context) {
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
         const {getLodashContext, isNativeCollectionMethodCall, getLodashMethodCallExpVisitor} = require('../util/lodashUtil')
         const {getMethodName, getCaller} = require('../util/astUtil')
         const {methodExists} = require('../util/methodDataUtil')
@@ -90,7 +91,7 @@ module.exports = {
                 if (node.type === 'Identifier') {
                     return node.name
                 }
-                return context.getSourceCode().getText(node)
+                return sourceCode.getText(node)
             }
         }
 

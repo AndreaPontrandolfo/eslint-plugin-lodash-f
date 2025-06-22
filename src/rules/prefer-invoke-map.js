@@ -19,12 +19,13 @@ module.exports = {
     },
 
     create(context) {
+        const sourceCode = context.sourceCode ?? context.getSourceCode()
         const {getLodashMethodVisitors} = require('../util/lodashUtil')
         const {isCallFromObject, getValueReturnedInFirstStatement, getFirstParamName} = require('../util/astUtil')
         const {isAliasOfMethod} = require('../util/methodDataUtil')
 
         function isOnlyUsedForObject(func, firstParamName) {
-            const declaredVariables = context.getDeclaredVariables(func)
+            const declaredVariables = sourceCode.getDeclaredVariables ? sourceCode.getDeclaredVariables(func, context) : context.getDeclaredVariables()
             return declaredVariables.every(variable => variable.references.length === 0 || (variable.name === firstParamName && variable.references.length === 1))
         }
 
