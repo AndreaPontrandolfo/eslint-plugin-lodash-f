@@ -59,5 +59,6 @@
   "license": "MIT",
   "dependencies": {
     "lodash": "^4.17.21"
-  }
+  },
+  "packageManager": "yarn@1.22.22"
 }
